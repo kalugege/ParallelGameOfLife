@@ -95,7 +95,7 @@ class Celija(threading.Thread):
     def run(self):
         global brojacCelija
         
-        for _ in range(0,3):
+        for _ in range(0,100):
          
             ziveKomsije = self.proveraSuseda()
             self.semaforCelije.acquire()
@@ -103,7 +103,7 @@ class Celija(threading.Thread):
             for i in range(0,8):
                 self.procitanOd[i]=0
             procitanOdLock.release()
-            time.sleep(1)
+            time.sleep(0.01)
             #print(self.procitanOd)
            
             self.promenaStanja(ziveKomsije)
